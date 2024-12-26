@@ -1,3 +1,4 @@
+import { supportedVideoMimeTypes } from "./get-media-recorder-types";
 import "./style.css";
 
 async function startApp() {
@@ -67,7 +68,7 @@ async function startApp() {
       timerElement.style.color = "white";
 
       const blob = new Blob(mediaChunks, {
-        type: mediaChunks[0]?.type || "",
+        type: supportedVideoMimeTypes[0]
       });
 
       videoElement.src = URL.createObjectURL(blob);
